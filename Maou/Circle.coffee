@@ -1,9 +1,4 @@
-/*
- * decaffeinate suggestions:
- * DS102: Remove unnecessary code created because of implicit returns
- * Full docs: https://github.com/decaffeinate/decaffeinate/blob/master/docs/suggestions.md
- */
-let styles = `\
+styles = """
 /* 
  * "Maou's gift" v1.0.5
  */
@@ -240,61 +235,58 @@ pre { left: 50%; }
  * 
  * See you later!Be happy!
  *  
- */\
-`;
+ */
+"""
 
-let openComment = false;
+openComment = false
 
-const writeStyleChar = function(which) {
-	// begin wrapping open comments
-  if ((which === '/') && (openComment === false)) {
-    openComment = true;
-    styles = $('#style-text').html() + which;
-  } else if ((which === '/') && (openComment === true)) {
-    openComment = false;
-    styles = $('#style-text').html().replace(/(\/[^\/]*\*)$/, '<em class="comment">$1/</em>');
-  // wrap style declaration
-  } else if (which === ':') {
-    styles = $('#style-text').html().replace(/([a-zA-Z- ^\n]*)$/, '<em class="key">$1</em>:');
-  // wrap style value 
-  } else if (which === ';') {
-    styles = $('#style-text').html().replace(/([^:]*)$/, '<em class="value">$1</em>;');
-  // wrap selector
-  } else if (which === '{') {
-    styles = $('#style-text').html().replace(/(.*)$/, '<em class="selector">$1</em>{');
-  } else {
-    styles = $('#style-text').html() + which;
-  }
-  $('#style-text').html(styles);
-  return $('#style-tag').append(which);
-};
+writeStyleChar = (which) ->
+	# begin wrapping open comments
+  if which == '/' && openComment == false
+    openComment = true
+    styles = $('#style-text').html() + which
+  else if which == '/' && openComment == true
+    openComment = false
+    styles = $('#style-text').html().replace(/(\/[^\/]*\*)$/, '<em class="comment">$1/</em>')
+  # wrap style declaration
+  else if which == ':'
+    styles = $('#style-text').html().replace(/([a-zA-Z- ^\n]*)$/, '<em class="key">$1</em>:')
+  # wrap style value 
+  else if which == ';'
+    styles = $('#style-text').html().replace(/([^:]*)$/, '<em class="value">$1</em>;')
+  # wrap selector
+  else if which == '{'
+    styles = $('#style-text').html().replace(/(.*)$/, '<em class="selector">$1</em>{')
+  else
+    styles = $('#style-text').html() + which
+  $('#style-text').html styles
+  $('#style-tag').append which
 
-var writeStyles = function(message, index, interval) {
-  if (index < message.length) {
-    const pre = document.getElementById('style-text');
-    pre.scrollTop = pre.scrollHeight;
-    writeStyleChar(message[index++]);
-    return setTimeout((() => writeStyles(message, index, interval)), interval);
-  }
-};
+writeStyles = (message, index, interval) ->
+  if index < message.length
+    pre = document.getElementById 'style-text'
+    pre.scrollTop = pre.scrollHeight
+    writeStyleChar message[index++]
+    setTimeout (->
+      writeStyles message, index, interval
+    ), interval
     
 
-// appending the tags I'll need.
-$('body').append(`\
+# appending the tags I'll need.
+$('body').append """
   <style id="style-tag"></style>
-<span id="echo"></span>
-<span id="heart"><i></i></span>
-<pre id="style-text"></pre>\
-`
-);
+	<span id="echo"></span>
+	<span id="heart"><i></i></span>
+	<pre id="style-text"></pre>
+"""
 
-// faster typing in small iframe on codepen homepage
-const time = window.innerWidth <= 578 ? 4 : 16;
+# faster typing in small iframe on codepen homepage
+time = if window.innerWidth <= 578 then 4 else 16
   
-// starting it off
-writeStyles(styles, 0, time);
+# starting it off
+writeStyles(styles, 0, time)
 
-/*
+###
 Changelog:
 1.0.0: i exist!
 1.0.1: heart instead of circle
@@ -308,4 +300,4 @@ Changelog:
 	`0%, 100% {}` instead of duplicated keyframes
 1.0.5: overflwo fix
   `overflow: auto` on the `pre`
-*/
+###
