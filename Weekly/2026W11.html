@@ -1,0 +1,847 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>北境 Industry Weekly - 2026 W11</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Cinzel:wght@400;700;900&family=EB+Garamond:ital,wght@0,400;0,700;1,400&family=UnifrakturMaguntia&display=swap');
+  :root {
+    --bg: #1a1408;
+    --card-bg: #241c0e;
+    --parchment: #2a2112;
+    --parchment-light: #342a18;
+    --parchment-warm: #3d3020;
+    --gold: #c9a84c;
+    --gold-dim: #8b7332;
+    --gold-bright: #e8c84c;
+    --gold-glow: rgba(201,168,76,.25);
+    --text: #d4c9a8;
+    --text-dim: #9a8e6e;
+    --text-muted: #6b6248;
+    --ink: #2c2416;
+    --border: #4a3d28;
+    --border-light: #5a4d35;
+    --link: #c9a84c;
+    --link-hover: #e8d88c;
+    --accent-featured: #7bb3ff;
+    --accent-bigstory: #ef4444;
+    --accent-game: #d946ef;
+    --container-max: 1400px;
+    --src-anthropic: #d97706;
+    --src-openai: #10b981;
+    --src-google: #4285f4;
+    --src-nvidia: #76b900;
+    --src-stratechery: #ef4444;
+    --src-techcrunch: #22c55e;
+    --src-cnbc: #2563eb;
+    --src-bloomberg: #8b5cf6;
+    --src-techbrew: #f59e0b;
+    --src-deepmind: #3b82f6;
+    --src-time: #e11d48;
+    --src-steam: #1b9fff;
+    --src-openclaw: #ef4444;
+    --src-china: #dc2626;
+    --src-general: #78716c;
+  }
+  *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+  html { font-size: 15px; }
+  body {
+    background: var(--bg);
+    background-image:
+      radial-gradient(ellipse at 20% 50%, rgba(80,60,20,.15) 0%, transparent 60%),
+      radial-gradient(ellipse at 80% 30%, rgba(60,45,15,.12) 0%, transparent 50%);
+    color: var(--text);
+    font-family: 'EB Garamond', Georgia, 'Times New Roman', serif;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: var(--link); text-decoration: none; transition: color .15s; }
+  a:hover { color: var(--link-hover); }
+  .newspaper {
+    max-width: var(--container-max);
+    margin: 0 auto;
+    padding: 0 28px;
+    background: linear-gradient(180deg, rgba(42,33,18,.4) 0%, transparent 120px, transparent 80%, rgba(42,33,18,.3) 100%);
+    border-left: 1px solid rgba(201,168,76,.08);
+    border-right: 1px solid rgba(201,168,76,.08);
+  }
+
+  /* === PROPHET MASTHEAD === */
+  .masthead {
+    text-align: center;
+    padding: 32px 0 24px;
+    background:
+      linear-gradient(180deg, #2a2112 0%, #1a1408 100%);
+    border-top: 3px solid var(--gold-dim);
+    border-bottom: 3px solid var(--gold-dim);
+    position: relative;
+  }
+  .masthead::before, .masthead::after {
+    content: '';
+    position: absolute;
+    top: -3px;
+    bottom: -3px;
+    width: 3px;
+  }
+  .masthead::before { left: -1px; background: linear-gradient(180deg, var(--gold-dim), transparent 30%, transparent 70%, var(--gold-dim)); }
+  .masthead::after { right: -1px; background: linear-gradient(180deg, var(--gold-dim), transparent 30%, transparent 70%, var(--gold-dim)); }
+
+  .masthead-rule-top, .masthead-rule-bottom {
+    display: block;
+    margin: 0 auto;
+    height: 0;
+    border: none;
+  }
+  .masthead-rule-top {
+    width: 80%;
+    border-top: 1px solid var(--gold-dim);
+    border-bottom: 1px solid rgba(201,168,76,.2);
+    height: 3px;
+    margin-bottom: 16px;
+  }
+  .masthead-rule-bottom {
+    width: 80%;
+    border-top: 1px solid rgba(201,168,76,.2);
+    border-bottom: 1px solid var(--gold-dim);
+    height: 3px;
+    margin-top: 16px;
+  }
+
+  .masthead-ministry {
+    font-family: 'Cinzel', serif;
+    font-size: 9px;
+    letter-spacing: 8px;
+    text-transform: uppercase;
+    color: var(--gold-dim);
+    margin-bottom: 4px;
+  }
+  .masthead-crest {
+    font-size: 28px;
+    line-height: 1;
+    margin-bottom: 2px;
+    filter: grayscale(.3) sepia(.5);
+    opacity: .7;
+  }
+  .masthead-title {
+    font-family: 'Cinzel Decorative', 'Cinzel', serif;
+    font-size: 64px;
+    font-weight: 900;
+    letter-spacing: 6px;
+    color: var(--gold);
+    text-shadow:
+      0 0 30px rgba(201,168,76,.2),
+      0 2px 4px rgba(0,0,0,.6),
+      0 4px 12px rgba(201,168,76,.15);
+    line-height: 1;
+    margin-bottom: 2px;
+  }
+  .masthead-tagline {
+    font-family: 'Cinzel', serif;
+    font-size: 10px;
+    letter-spacing: 6px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 10px;
+  }
+  .masthead-subtitle {
+    font-family: 'EB Garamond', serif;
+    font-size: 15px;
+    color: var(--text-dim);
+    letter-spacing: 3px;
+    margin-bottom: 2px;
+  }
+  .masthead-date {
+    font-family: 'EB Garamond', serif;
+    font-size: 12px;
+    color: var(--text-muted);
+    letter-spacing: 2px;
+    font-style: italic;
+  }
+  .masthead-ornament {
+    display: block;
+    margin: 14px auto 0;
+    width: 300px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent 0%, var(--gold-dim) 20%, var(--gold) 50%, var(--gold-dim) 80%, transparent 100%);
+    position: relative;
+  }
+  .masthead-ornament::before {
+    content: '\2726';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 14px;
+    color: var(--gold);
+    background: #1a1408;
+    padding: 0 8px;
+  }
+
+  /* === DECORATIVE DIVIDERS === */
+  .divider {
+    text-align: center;
+    border: none;
+    height: auto;
+    margin: 0;
+    padding: 8px 0;
+    position: relative;
+  }
+  .divider::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 10%;
+    right: 10%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold-dim) 20%, var(--gold-dim) 80%, transparent);
+  }
+  .divider-symbol {
+    position: relative;
+    display: inline-block;
+    background: var(--bg);
+    padding: 0 12px;
+    font-size: 14px;
+    color: var(--gold-dim);
+  }
+
+  /* === KEYWORDS BAR === */
+  .keywords-bar {
+    display: flex; flex-wrap: wrap; justify-content: center; gap: 6px;
+    padding: 14px 20px;
+    border-bottom: 1px solid var(--border);
+    background: rgba(42,33,18,.3);
+  }
+  .keyword-tag {
+    font-family: 'Cinzel', serif;
+    font-size: 9px;
+    padding: 3px 10px;
+    border-radius: 0;
+    background: rgba(201,168,76,.06);
+    color: var(--text-dim);
+    letter-spacing: 1.5px;
+    border: 1px solid rgba(201,168,76,.12);
+    text-transform: uppercase;
+  }
+
+  /* === SOURCE BADGES === */
+  .source-badge {
+    display: inline-block;
+    font-family: 'Cinzel', serif;
+    font-size: 9px;
+    font-weight: 700;
+    padding: 1px 7px;
+    border-radius: 0;
+    letter-spacing: .8px;
+    white-space: nowrap;
+    text-transform: uppercase;
+    border: 1px solid;
+  }
+  .source-anthropic { background: rgba(217,119,6,.08); color: var(--src-anthropic); border-color: rgba(217,119,6,.25); }
+  .source-openai { background: rgba(16,185,129,.08); color: var(--src-openai); border-color: rgba(16,185,129,.25); }
+  .source-google { background: rgba(66,133,244,.08); color: var(--src-google); border-color: rgba(66,133,244,.25); }
+  .source-nvidia { background: rgba(118,185,0,.08); color: var(--src-nvidia); border-color: rgba(118,185,0,.25); }
+  .source-stratechery { background: rgba(239,68,68,.08); color: var(--src-stratechery); border-color: rgba(239,68,68,.25); }
+  .source-techcrunch { background: rgba(34,197,94,.08); color: var(--src-techcrunch); border-color: rgba(34,197,94,.25); }
+  .source-cnbc { background: rgba(37,99,235,.08); color: var(--src-cnbc); border-color: rgba(37,99,235,.25); }
+  .source-bloomberg { background: rgba(139,92,246,.08); color: var(--src-bloomberg); border-color: rgba(139,92,246,.25); }
+  .source-techbrew { background: rgba(245,158,11,.08); color: var(--src-techbrew); border-color: rgba(245,158,11,.25); }
+  .source-deepmind { background: rgba(59,130,246,.08); color: var(--src-deepmind); border-color: rgba(59,130,246,.25); }
+  .source-time { background: rgba(225,29,72,.08); color: var(--src-time); border-color: rgba(225,29,72,.25); }
+  .source-steam { background: rgba(27,159,255,.08); color: var(--src-steam); border-color: rgba(27,159,255,.25); }
+  .source-openclaw { background: rgba(239,68,68,.08); color: var(--src-openclaw); border-color: rgba(239,68,68,.25); }
+  .source-china { background: rgba(220,38,38,.08); color: var(--src-china); border-color: rgba(220,38,38,.25); }
+  .source-general { background: rgba(160,160,160,.06); color: #999; border-color: rgba(160,160,160,.2); }
+  .date-label { font-size: 11px; color: var(--text-muted); font-style: italic; }
+
+  /* === TOP STORIES === */
+  .section-label {
+    font-family: 'Cinzel', serif;
+    font-size: 11px;
+    letter-spacing: 6px;
+    text-transform: uppercase;
+    color: var(--gold-dim);
+    padding: 18px 0 6px;
+    text-align: center;
+  }
+  .top-stories { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 28px; padding: 20px 0 24px; border-bottom: 2px solid var(--border); }
+  .top-story-card .thumb {
+    width: 100%; height: 180px; object-fit: cover; margin-bottom: 12px;
+    background: var(--parchment-light);
+    border: 2px solid var(--border);
+    box-shadow: 2px 3px 8px rgba(0,0,0,.4);
+    filter: sepia(.15) contrast(1.05);
+    transition: filter .3s;
+  }
+  .top-story-card:hover .thumb { filter: sepia(0) contrast(1.1); }
+  .top-story-card .thumb-link, .column-article .thumb-link, .brief-card .thumb-link {
+    display: block; line-height: 0;
+  }
+  .top-story-card .thumb-link .thumb { margin-bottom: 12px; }
+  img.img-err { object-position: -9999px; color: transparent; }
+  .top-story-card .card-title { font-family: 'Cinzel', serif; font-size: 19px; font-weight: 700; color: var(--gold-bright); line-height: 1.35; margin-bottom: 4px; }
+  .top-story-card .card-title a { color: var(--gold-bright); }
+  .top-story-card .card-title a:hover { color: var(--link-hover); text-shadow: 0 0 12px var(--gold-glow); }
+  .top-story-card .title-en { font-size: 12px; color: var(--text-muted); font-style: italic; margin-bottom: 10px; }
+  .top-story-card .meta-row { display: flex; align-items: center; gap: 8px; margin-bottom: 10px; }
+  .top-story-card .summary { font-size: 13.5px; color: var(--text); line-height: 1.85; }
+  .top-story-card .drop-cap::first-letter {
+    float: left;
+    font-family: 'Cinzel Decorative', serif;
+    font-size: 2.8em;
+    line-height: .8;
+    padding-right: 6px;
+    padding-top: 4px;
+    color: var(--gold);
+  }
+
+  /* === THREE COLUMNS === */
+  .columns-section { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0; padding: 0 0 8px; }
+  .featured-column { border-right: 1px solid var(--border); padding-right: 24px; }
+  .game-column { border-right: 1px solid var(--border); padding: 0 24px; }
+  .bigstory-column { padding-left: 24px; }
+  .column-header {
+    font-family: 'Cinzel', serif;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    padding: 18px 0 12px;
+    border-bottom: 2px double var(--border);
+    margin-bottom: 14px;
+    text-align: center;
+  }
+  .featured-column .column-header { color: var(--accent-featured); }
+  .game-column .column-header { color: var(--accent-game); }
+  .bigstory-column .column-header { color: var(--accent-bigstory); }
+
+  .column-article { display: flex; gap: 12px; padding: 10px 0 12px; border-bottom: 1px solid rgba(74,61,40,.5); }
+  .column-article:last-child { border-bottom: none; }
+  .featured-column .column-article { border-left: 2px solid rgba(123,179,255,.3); padding-left: 14px; }
+  .game-column .column-article { border-left: 2px solid rgba(217,70,239,.3); padding-left: 14px; }
+  .bigstory-column .column-article { border-left: 2px solid rgba(239,68,68,.3); padding-left: 14px; }
+
+  .column-article .col-thumb {
+    width: 80px; min-width: 80px; height: 56px; object-fit: cover;
+    background: var(--parchment-light);
+    border: 1px solid var(--border);
+    box-shadow: 1px 2px 5px rgba(0,0,0,.3);
+    filter: sepia(.12);
+    transition: filter .3s;
+  }
+  .column-article:hover .col-thumb { filter: sepia(0); }
+  .column-article .col-content { flex: 1; min-width: 0; }
+  .column-article .card-title { font-family: 'Cinzel', Georgia, serif; font-size: 14px; font-weight: 700; color: var(--gold-bright); line-height: 1.4; margin-bottom: 4px; }
+  .column-article .card-title a { color: var(--gold-bright); }
+  .column-article .card-title a:hover { color: var(--link-hover); text-shadow: 0 0 8px var(--gold-glow); }
+  .column-article .meta-row { display: flex; align-items: center; gap: 8px; margin-bottom: 4px; }
+  .column-article .summary { font-size: 12.5px; color: var(--text); line-height: 1.7; }
+
+  /* === BRIEFS === */
+  .briefs-header {
+    font-family: 'Cinzel', serif;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--gold-dim);
+    padding: 20px 0 10px;
+    border-top: 2px double var(--border);
+    border-bottom: 1px solid var(--border);
+    margin-top: 12px;
+    text-align: center;
+  }
+  .briefs-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; padding: 16px 0 32px; }
+  .brief-card {
+    background: linear-gradient(160deg, var(--parchment) 0%, rgba(36,28,14,.8) 100%);
+    border-radius: 0;
+    padding: 14px;
+    border: 1px solid var(--border);
+    box-shadow: 2px 2px 6px rgba(0,0,0,.25);
+    transition: border-color .15s, box-shadow .15s;
+  }
+  .brief-card:hover { border-color: var(--gold-dim); box-shadow: 2px 2px 10px rgba(201,168,76,.1); }
+  .brief-card .brief-top { display: flex; gap: 10px; margin-bottom: 8px; }
+  .brief-card .brief-thumb {
+    width: 60px; min-width: 60px; height: 60px; object-fit: cover;
+    background: var(--parchment-light);
+    border: 1px solid var(--border);
+    filter: sepia(.12);
+    box-shadow: 1px 1px 4px rgba(0,0,0,.3);
+  }
+  .brief-card .brief-info { flex: 1; min-width: 0; }
+  .brief-card .meta-row { display: flex; align-items: center; gap: 8px; margin-bottom: 6px; }
+  .brief-card .card-title { font-family: 'Cinzel', serif; font-size: 12px; font-weight: 700; color: var(--gold-bright); line-height: 1.4; margin-bottom: 4px; }
+  .brief-card .card-title a { color: var(--gold-bright); }
+  .brief-card .card-title a:hover { color: var(--link-hover); }
+  .brief-card .summary { font-size: 12px; color: var(--text-dim); line-height: 1.6; }
+
+  /* === FOOTER === */
+  .footer {
+    text-align: center;
+    font-family: 'Cinzel', serif;
+    font-size: 11px;
+    color: var(--text-muted);
+    padding: 20px 0 36px;
+    border-top: 3px solid var(--gold-dim);
+    letter-spacing: 2px;
+    position: relative;
+  }
+  .footer::before {
+    content: '\269B';
+    display: block;
+    font-size: 20px;
+    color: var(--gold-dim);
+    margin-bottom: 8px;
+    opacity: .6;
+  }
+  .footer-quote {
+    display: block;
+    font-family: 'EB Garamond', serif;
+    font-style: italic;
+    font-size: 13px;
+    color: var(--text-muted);
+    margin-bottom: 6px;
+    letter-spacing: 1px;
+  }
+
+  /* === RESPONSIVE === */
+  @media (max-width: 1024px) {
+    .top-stories { grid-template-columns: 1fr; }
+    .columns-section { grid-template-columns: 1fr; }
+    .featured-column, .game-column, .bigstory-column { border-right: none; padding: 0; border-bottom: 1px solid var(--border); padding-bottom: 12px; margin-bottom: 8px; }
+    .bigstory-column { border-bottom: none; }
+    .masthead-title { font-size: 44px; }
+  }
+  @media (max-width: 768px) {
+    .briefs-grid { grid-template-columns: repeat(2, 1fr); }
+    .newspaper { padding: 0 14px; }
+    .masthead::before, .masthead::after { display: none; }
+  }
+  @media print {
+    * { page-break-inside: avoid !important; break-inside: avoid !important; }
+    html, body { background: #fff !important; color: #000 !important; }
+    .newspaper { max-width: 100% !important; }
+    a { color: #000 !important; }
+    .source-badge { border: 1px solid #ccc !important; background: #f0f0f0 !important; color: #333 !important; }
+    .brief-card { border-color: #ccc !important; background: #fff !important; }
+  }
+</style>
+</head>
+<body>
+<div class="newspaper">
+
+<!-- ==================== MASTHEAD ==================== -->
+<header class="masthead">
+  <div class="masthead-ministry">&#9883; Ministry of Artificial Intelligence Approved &#9883;</div>
+  <hr class="masthead-rule-top" />
+  <div class="masthead-crest">&#9764;</div>
+  <div class="masthead-title">北境 Industry Weekly</div>
+  <div class="masthead-tagline">Delivering Magical Intelligence Since 2026</div>
+  <hr class="masthead-rule-bottom" />
+  <div class="masthead-subtitle">2026&#24180;3&#26376;6&#26085; &#8211; 3&#26376;13&#26085; &middot; &#31532;11&#26399;&#21608;&#25253;</div>
+  <div class="masthead-date">"The Wizarding World's Most Trusted Source of AI Intelligence" &middot; 26 dispatches &middot; Price: 5 Knuts</div>
+  <span class="masthead-ornament"></span>
+</header>
+
+<!-- ==================== KEYWORDS BAR ==================== -->
+<nav class="keywords-bar">
+  <span class="keyword-tag">OpenAI $110B</span>
+  <span class="keyword-tag">Anthropic vs Pentagon</span>
+  <span class="keyword-tag">Gemini 3</span>
+  <span class="keyword-tag">GPT-5.4</span>
+  <span class="keyword-tag">OpenClaw</span>
+  <span class="keyword-tag">#QuitGPT</span>
+  <span class="keyword-tag">NVIDIA GTC</span>
+  <span class="keyword-tag">Slay the Spire 2</span>
+  <span class="keyword-tag">中国AI红包大战</span>
+  <span class="keyword-tag">DeepSeek V4</span>
+</nav>
+
+<!-- ==================== TOP STORIES ==================== -->
+<div class="divider"><span class="divider-symbol">&#10038; 头条要闻 &#10038;</span></div>
+<div class="top-stories">
+
+  <div class="top-story-card">
+    <img class="thumb" src="https://blogs.nvidia.com/wp-content/uploads/2026/03/JL1_0473-scaled.jpg" alt="NVIDIA" loading="lazy" onerror="this.classList.add('img-err');this.style.background='linear-gradient(135deg,#76b900,#3d6100)';this.style.height='180px'" />
+    <h3 class="card-title"><a href="https://developer.nvidia.com/blog/introducing-nemotron-3-super-an-open-hybrid-mamba-transformer-moe-for-agentic-reasoning/" target="_blank">NVIDIA 开源 Nemotron 3 Super，GTC 2026 下周开幕</a></h3>
+    <div class="title-en">NVIDIA Open-Sources Nemotron 3 Super 120B; GTC 2026 Kicks Off Next Week</div>
+    <div class="meta-row">
+      <span class="source-badge source-nvidia">NVIDIA</span>
+      <span class="date-label">03-11 ~ 03-12</span>
+    </div>
+    <p class="summary drop-cap">NVIDIA 发布 Nemotron 3 Super——1200亿参数/120亿活跃的混合 Mamba-2 + MoE + Attention 架构开源模型，百万 token 上下文窗口，吞吐量是同级别模型5倍。在 OpenClaw 基准 PinchBench 上以85.6%登顶所有开源模型。同时宣布向 AI 云公司 Nebius 投资20亿美元。GTC 2026 将于3月16日开幕，Jensen Huang 将发布 Vera Rubin 平台。</p>
+  </div>
+
+  <div class="top-story-card">
+    <img class="thumb" src="https://cdn.sanity.io/images/4zrzovbb/website/5ac72c2c6509b4b6c41ac8f742636fe123b0ba1a-1920x1080.png" alt="Anthropic" loading="lazy" onerror="this.classList.add('img-err');this.style.background='linear-gradient(135deg,#1e3a5f,#0f172a)';this.style.height='180px'" />
+    <h3 class="card-title"><a href="https://www.cnbc.com/2026/03/12/anthropic-claude-emil-michael-defense.html" target="_blank">Anthropic 起诉特朗普政府，抗议"供应链污染"标签</a></h3>
+    <div class="title-en">Anthropic Sues Trump Admin Over Pentagon "Supply Chain Pollution"</div>
+    <div class="meta-row">
+      <span class="source-badge source-anthropic">Anthropic</span>
+      <span class="source-badge source-time">Time</span>
+      <span class="date-label">03-09 ~ 03-12</span>
+    </div>
+    <p class="summary drop-cap">五角大楼CTO将Claude列为"供应链污染风险"——历史上仅用于外国对手的标签。Anthropic于3月9日在加州和华盛顿提起两项联邦诉讼。900+名Google和OpenAI员工签署公开信支持Anthropic立场。Time评其为"全球最具颠覆性公司"。年化收入140亿，Claude Code ARR 25亿。</p>
+  </div>
+
+  <div class="top-story-card">
+    <img class="thumb" src="https://storage.googleapis.com/gweb-uniblog-publish-prod/images/gemini-3_model-blog_meta-dark.width-1300.jpg" alt="Google Pentagon" loading="lazy" onerror="this.classList.add('img-err');this.style.background='linear-gradient(135deg,#4285f4,#1a47a0)';this.style.height='180px'" />
+    <h3 class="card-title"><a href="https://www.bloomberg.com/news/articles/2026-03-10/google-to-provide-pentagon-with-ai-agents-for-unclassified-work" target="_blank">Google 向五角大楼部署 Gemini AI Agent，覆盖300万人</a></h3>
+    <div class="title-en">Google Deploys Gemini AI Agents Across Pentagon's 3M Workforce</div>
+    <div class="meta-row">
+      <span class="source-badge source-google">Google</span>
+      <span class="source-badge source-bloomberg">Bloomberg</span>
+      <span class="date-label">03-10</span>
+    </div>
+    <p class="summary drop-cap">Google 于3月10日宣布向五角大楼300万员工部署 Gemini 驱动的AI Agent，用于非机密业务。首批8个Agent将整合到 GenAI.mil 平台——该平台已有120万国防部员工使用、处理4000万条提示词。此举紧随 Anthropic 起诉五角大楼事件之后，900+名Google和OpenAI员工签署公开信支持 Anthropic 反对自主武器的立场。</p>
+  </div>
+
+</div>
+
+<!-- ==================== THREE COLUMNS ==================== -->
+<div class="divider"><span class="divider-symbol">&#10070;</span></div>
+<div class="columns-section">
+
+  <!-- ===== Column 1: 与你相关 ===== -->
+  <div class="featured-column">
+    <div class="column-header">&#9733; 与你相关</div>
+
+    <div class="column-article">
+      <img class="col-thumb" src="https://www.anthropic.com/api/opengraph-illustration?name=Hand%20House&backgroundColor=cactus" alt="" loading="lazy" onerror="this.classList.add('img-err');this.style.background='linear-gradient(135deg,#d97706,#78350f)'" />
+      <div class="col-content">
+        <h4 class="card-title"><a href="https://www.pymnts.com/news/artificial-intelligence/2026/anthropic-challenges-saas-giants-with-claude-marketplace/" target="_blank">Claude Marketplace 上线，挑战SaaS巨头</a></h4>
+        <div class="meta-row"><span class="source-badge source-anthropic">Anthropic</span><span class="date-label">03-10</span></div>
+        <p class="summary">企业级AI工具市场，首批伙伴GitLab、Harvey、Lovable、Replit、Rogo、Snowflake。投资1亿美元建设合作伙伴网络。</p>
+      </div>
+    </div>
+
+    <div class="column-article">
+      <img class="col-thumb" src="https://cdn.openai.com/API/docs/images/brain_logo.png" alt="" loading="lazy" onerror="this.classList.add('img-err');this.style.background='linear-gradient(135deg,#10b981,#065f46)'" />
+      <div class="col-content">
+        <h4 class="card-title"><a href="https://academy.openai.com/public/resources/latest-model" target="_blank">GPT-5.3/5.4 三款新模型正式发布</a></h4>
+        <div class="meta-row"><span class="source-badge source-openai">OpenAI</span><span class="date-label">03-05</span></div>
+        <p class="summary">Instant快速任务、Thinking复杂推理、Pro极端场景。ChatGPT新增70+学科交互式可视化。</p>
+      </div>
+    </div>
+
+    <div class="column-article">
+      <img class="col-thumb" src="https://d15shllkswkct0.cloudfront.net/wp-content/blogs.dir/1/files/2026/03/69b1048a4e146f048af72e00_Claude-Blog-Inline-Visualization.gif" alt="" loading="lazy" onerror="this.classList.add('img-err');this.style.background='linear-gradient(135deg,#d97706,#78350f)'" />
+      <div class="col-content">
+        <h4 class="card-title"><a href="https://siliconangle.com/2026/03/12/anthropics-claude-gets-interactive-visuals-enhance-learning/" target="_blank">Claude "Imagine" 可视化面向所有用户开放</a></h4>
+        <div class="meta-row"><span class="source-badge source-anthropic">Anthropic</span><span class="date-label">03-12</span></div>
+        <p class="summary">对话中即时创建交互可视化和软件，免费用户可用。记忆功能也全量开放。</p>
+      </div>
+    </div>
+
+    <div class="column-article">
+      <img class="col-thumb" src="https://blogs.nvidia.com/wp-content/uploads/2026/03/JL1_0473-scaled.jpg" alt="" loading="lazy" onerror="this.classList.add('img-err');this.style.background='linear-gradient(135deg,#76b900,#3d6100)'" />
+      <div class="col-content">
+        <h4 class="card-title"><a href="https://blogs.nvidia.com/blog/gtc-2026-news/" target="_blank">NVIDIA Nemotron 3 Super 开源（120B）</a></h4>
+        <div class="meta-row"><span class="source-badge source-nvidia">NVIDIA</span><span class="date-label">03-11</span></div>
+        <p class="summary">1200亿参数/120亿活跃的稀疏模型，专为大规模Agent系统设计。</p>
+      </div>
+    </div>
+
+    <div class="column-article">
+      <img class="col-thumb" src="https://storage.googleapis.com/gweb-uniblog-publish-prod/images/gemini-3_model-blog_meta-dark.width-1300.jpg" alt="" loading="lazy" onerror="this.classList.add('img-err');this.style.background='linear-gradient(135deg,#4285f4,#1a47a0)'" />
+      <div class="col-content">
+        <h4 class="card-title"><a href="https://blog.google/products-and-platforms/products/workspace/gemini-workspace-updates-march-2026/" target="_blank">Gemini 全面升级 Workspace 协作</a></h4>
+        <div class="meta-row"><span class="source-badge source-google">Google</span><span class="date-label">03-10</span></div>
+        <p class="summary">Docs/Sheets/Slides个性化文档创建，API支持Computer Use工具。</p>
+      </div>
+    </div>
+
+    <div class="column-article">
+      <img class="col-thumb" src="https://cdn.sanity.io/images/4zrzovbb/website/9ad98d612086fe52b3042f9183414669b4d2a3da-2200x1954.png" alt="" loading="lazy" onerror="this.classList.add('img-err');this.style.background='linear-gradient(135deg,#d97706,#78350f)'" />
+      <div class="col-content">
+        <h4 class="card-title"><a href="https://releasebot.io/updates/anthropic/claude" target="_blank">Claude Code 稳定性与UX大更新</a></h4>
+        <div class="meta-row"><span class="source-badge source-anthropic">Anthropic</span><span class="date-label">03-08</span></div>
+        <p class="summary">VS Code会话可视化、MCP管理、智能启动。单独ARR 25亿美元。</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== Column 2: 本周游戏 ===== -->
+  <div class="game-column">
+    <div class="column-header">&#9876; 本周游戏</div>
+
+    <div class="column-article">
+      <img class="col-thumb" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2868840/header.jpg" alt="Slay the Spire 2" loading="lazy" onerror="this.classList.add('img-err');this.style.background='linear-gradient(135deg,#d946ef,#7c2d92)'" />
+      <div class="col-content">
+        <h4 class="card-title"><a href="https://www.gamesradar.com/games/strategy/slay-the-spire-2-steam-early-access-release-date-set-for-march-5-as-the-king-of-roguelike-deckbuilders-returns-to-its-throne/" target="_blank">Slay the Spire 2 EA上线，首日16.5万同时在线</a></h4>
+        <div class="meta-row"><span class="source-badge source-steam">Steam</span><span class="date-label">03-05</span></div>
+        <p class="summary">卡牌Roguelike王者续作正式EA。全新美术风格、新角色和卡牌机制，设定在尖塔开启1000年后。首日同时在线飞过16.5万。</p>
+      </div>
+    </div>
+
+    <div class="column-article">
+      <img class="col-thumb" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1982680/header.jpg" alt="Monster Train 2" loading="lazy" onerror="this.classList.add('img-err');this.style.background='linear-gradient(135deg,#ef4444,#7f1d1d)'" />
+      <div class="col-content">
+        <h4 class="card-title"><a href="https://rogueliker.com/roguelike-round-up-march-2026/" target="_blank">Monster Train 2: 灵魂幸存者模式上线</a></h4>
+        <div class="meta-row"><span class="source-badge source-steam">Steam</span><span class="date-label">03-07</span></div>
+        <p class="summary">大型资料片新增Soul Survivor模式——自由选择Boss击杀顺序并将Boss灵魂装备到卡组。新种族、新神器、新仆人。</p>
+      </div>
+    </div>
+
+    <div class="column-article">
+      <img class="col-thumb" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2494370/header.jpg" alt="Galactic Vault" loading="lazy" onerror="this.classList.add('img-err');this.style.background='linear-gradient(135deg,#06b6d4,#0e7490)'" />
+      <div class="col-content">
+        <h4 class="card-title"><a href="https://bleedingcool.com/games/galactic-vault-launches-free-demo-ahead-of-march-release/" target="_blank">Galactic Vault: Roguelike FPS 3月10日发售</a></h4>
+        <div class="meta-row"><span class="source-badge source-steam">Steam</span><span class="date-label">03-10</span></div>
+        <p class="summary">前特种兵突袭银河科技金库——随机布局、独特Boss、强劲射击手感的第一人称Roguelike。</p>
+      </div>
+    </div>
+
+    <div class="column-article">
+      <img class="col-thumb" src="https://cdn.akamai.steamstatic.com/steam/apps/2395770/header.jpg" alt="Never Grave" loading="lazy" onerror="this.classList.add('img-err');this.style.background='linear-gradient(135deg,#8b5cf6,#4c1d95)'" />
+      <div class="col-content">
+        <h4 class="card-title"><a href="https://monstervine.com/2026/03/march-2026-indie-games/" target="_blank">Never Grave: 附身Roguelike银河城</a></h4>
+        <div class="meta-row"><span class="source-badge source-steam">Steam</span><span class="date-label">03-08</span></div>
+        <p class="summary">用诅咒之帽附身敌人获得其战斗能力。含村庄重建、种田等生活模拟要素，支持4人合作。</p>
+      </div>
+    </div>
+
+    <div class="column-article">
+      <img class="col-thumb" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2696250/header.jpg" alt="RACCOIN" loading="lazy" onerror="this.classList.add('img-err');this.style.background='linear-gradient(135deg,#f59e0b,#92400e)'" />
+      <div class="col-content">
+        <h4 class="card-title"><a href="https://rogueliker.com/roguelike-round-up-march-2026/" target="_blank">RACCOIN: 推币机Roguelike 3/31发售</a></h4>
+        <div class="meta-row"><span class="source-badge source-steam">Steam</span><span class="date-label">03-31</span></div>
+        <p class="summary">街机推币机+Roguelike的奇妙融合。疯狂硬币、被动装备、可升级弹夹和多角色。</p>
+      </div>
+    </div>
+
+    <div class="column-article">
+      <img class="col-thumb" src="https://cdn.akamai.steamstatic.com/steam/apps/2738490/header.jpg" alt="Sol Cesto" loading="lazy" onerror="this.classList.add('img-err');this.style.background='linear-gradient(135deg,#ec4899,#831843)'" />
+      <div class="col-content">
+        <h4 class="card-title"><a href="https://www.gamesradar.com/games/roguelike/move-over-slay-the-spire-2-and-mewgenics-the-self-proclaimed-best-roguelike-in-2026-is-a-stylish-dungeon-crawler-with-94-percent-very-positive-steam-reviews-and-it-launches-into-1-0-in-april/" target="_blank">Sol Cesto: 自称"2026最佳Roguelike"，94%好评</a></h4>
+        <div class="meta-row"><span class="source-badge source-steam">Steam</span><span class="date-label">04月</span></div>
+        <p class="summary">时尚地牢爬行者，4月进入1.0正式版。Steam 94% Very Positive好评，直接叫板Slay the Spire 2。</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== Column 3: AI大瓜 ===== -->
+  <div class="bigstory-column">
+    <div class="column-header">&#128293; AI 大瓜</div>
+
+    <div class="column-article">
+      <img class="col-thumb" src="https://openclaw.ai/og-image.png" alt="OpenClaw" loading="lazy" onerror="this.classList.add('img-err');this.style.background='linear-gradient(135deg,#ef4444,#7f1d1d)'" />
+      <div class="col-content">
+        <h4 class="card-title"><a href="https://www.cnbc.com/2026/03/12/china-openclaw-ai-agent-adoption-tech-companies-government-support-lobster-shrimp.html" target="_blank">OpenClaw 席卷全球：16.3万GitHub Star的AI超级Agent</a></h4>
+        <div class="meta-row"><span class="source-badge source-openclaw">OpenClaw</span><span class="date-label">03-12</span></div>
+        <p class="summary">开源自主AI Agent框架爆火。163k GitHub Stars、5700+社区技能、50+平台集成。创始人加入OpenAI，项目移交开源基金会。Jensen Huang称其"可能是有史以来最重要的软件发布"。</p>
+      </div>
+    </div>
+
+    <div class="column-article">
+      <img class="col-thumb" src="https://mat1.gtimg.com/pingjs/ext2020/qqindex2018/dist/img/qq_logo_2x.png" alt="中国AI" loading="lazy" onerror="this.classList.add('img-err');this.style.background='linear-gradient(135deg,#dc2626,#7f1d1d)'" />
+      <div class="col-content">
+        <h4 class="card-title"><a href="https://www.cnbc.com/2026/03/12/china-openclaw-ai-agent-adoption-tech-companies-government-support-lobster-shrimp.html" target="_blank">中国科技巨头疯抢OpenClaw——腾讯"龙虾特种部队"</a></h4>
+        <div class="meta-row"><span class="source-badge source-china">中国AI</span><span class="date-label">03-12</span></div>
+        <p class="summary">腾讯推出基于OpenClaw的"龙虾特种部队"产品套件接入微信。字节火山引擎发布浏览器版ArkClaw。中国政府同时限制国有机构使用OpenClaw，引发安全讨论。</p>
+      </div>
+    </div>
+
+    <div class="column-article">
+      <img class="col-thumb" src="https://lf-flow-web-cdn.doubao.com/obj/flow-doubao/doubao/logo-doubao-overflow.png" alt="AI红包" loading="lazy" onerror="this.classList.add('img-err');this.style.background='linear-gradient(135deg,#dc2626,#991b1b)'" />
+      <div class="col-content">
+        <h4 class="card-title"><a href="https://www.guancha.cn/economy/2026_02_02_805882.shtml" target="_blank">中国AI红包大战：腾讯阿里字节豪掷45亿</a></h4>
+        <div class="meta-row"><span class="source-badge source-china">中国AI</span><span class="date-label">03-06</span></div>
+        <p class="summary">腾讯元宝14小时冲上App Store第一；阿里千问30亿"春节请客"；字节豆包独家央视春晚AI合作。豆包月活1.72亿领跑C端。</p>
+      </div>
+    </div>
+
+    <div class="column-article">
+      <img class="col-thumb" src="https://www.pymnts.com/wp-content/uploads/2026/02/Anthropic-Claude-AI-software-1.jpg" alt="QuitGPT" loading="lazy" onerror="this.classList.add('img-err');this.style.background='linear-gradient(135deg,#6b7280,#374151)'" />
+      <div class="col-content">
+        <h4 class="card-title"><a href="https://www.techbrew.com/stories/2026/03/11/a-vibe-check-for-ai-coding" target="_blank">#QuitGPT 运动爆发——250万用户取消</a></h4>
+        <div class="meta-row"><span class="source-badge source-general">多家媒体</span><span class="date-label">03-08</span></div>
+        <p class="summary">OpenAI签约五角大楼后250万人退订，卸载量暴涨295%。机器人部门负责人辞职。Claude登App Store第一。</p>
+      </div>
+    </div>
+
+    <div class="column-article">
+      <img class="col-thumb" src="https://kiro.dev/opengraph-image.png" alt="Kiro" loading="lazy" onerror="this.classList.add('img-err');this.style.background='linear-gradient(135deg,#f59e0b,#92400e)'" />
+      <div class="col-content">
+        <h4 class="card-title"><a href="https://www.techbrew.com/stories/2026/03/11/a-vibe-check-for-ai-coding" target="_blank">Amazon AI编码Agent Kiro疑致多次宕机</a></h4>
+        <div class="meta-row"><span class="source-badge source-techbrew">Tech Brew</span><span class="date-label">03-11</span></div>
+        <p class="summary">FT报道Kiro导致AWS 13小时宕机。Amazon否认但内部讨论泄露。"更多AI代码=更多风险"。</p>
+      </div>
+    </div>
+
+    <div class="column-article">
+      <img class="col-thumb" src="https://assets.crowdstrike.com/is/image/crowdstrikeinc/WebShareDefaultImage" alt="Security" loading="lazy" onerror="this.classList.add('img-err');this.style.background='linear-gradient(135deg,#4338ca,#312e81)'" />
+      <div class="col-content">
+        <h4 class="card-title"><a href="https://www.crowdstrike.com/en-us/blog/what-security-teams-need-to-know-about-openclaw-ai-super-agent/" target="_blank">CrowdStrike警告：OpenClaw成企业AI后门风险</a></h4>
+        <div class="meta-row"><span class="source-badge source-openclaw">CrowdStrike</span><span class="date-label">03-10</span></div>
+        <p class="summary">Cisco发现第三方技能可无感窃取数据和注入提示词。150万已部署Agent面临"失控"风险，安全问题被严重低估。</p>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- ==================== BRIEFS ==================== -->
+<div class="divider"><span class="divider-symbol">&#10070;</span></div>
+<div class="briefs-header">&#10038; 简讯速递 &#10038;</div>
+<div class="briefs-grid">
+
+  <div class="brief-card">
+    <div class="brief-top">
+      <img class="brief-thumb" src="https://blogs.nvidia.com/wp-content/uploads/2026/03/JL1_0473-scaled.jpg" alt="" loading="lazy" onerror="this.classList.add('img-err');this.style.background='linear-gradient(135deg,#76b900,#3d6100)'" />
+      <div class="brief-info">
+        <div class="meta-row"><span class="source-badge source-nvidia">NVIDIA</span><span class="date-label">03-12</span></div>
+        <h5 class="card-title"><a href="https://fortune.com/2026/03/12/nvidia-gtc-preview-the-real-march-madness-jensen-huang/" target="_blank">GTC 2026下周开幕，Rubin平台量产</a></h5>
+      </div>
+    </div>
+    <p class="summary">3万+参会者齐聚，Rubin Ultra支持144 GPU互联。华尔街称"AI超级碗"。</p>
+  </div>
+
+  <div class="brief-card">
+    <div class="brief-top">
+      <img class="brief-thumb" src="https://cdn.sanity.io/images/4zrzovbb/website/5ac72c2c6509b4b6c41ac8f742636fe123b0ba1a-1920x1080.png" alt="" loading="lazy" onerror="this.classList.add('img-err');this.style.background='linear-gradient(135deg,#d97706,#78350f)'" />
+      <div class="brief-info">
+        <div class="meta-row"><span class="source-badge source-anthropic">Anthropic</span><span class="date-label">03-08</span></div>
+        <h5 class="card-title"><a href="https://blog.mean.ceo/anthropic-claude-news-march-2026/" target="_blank">Anthropic $300亿G轮，估值$3800亿</a></h5>
+      </div>
+    </div>
+    <p class="summary">Coatue和GIC领投。年化收入140亿，企业订阅翻四倍。</p>
+  </div>
+
+  <div class="brief-card">
+    <div class="brief-top">
+      <img class="brief-thumb" src="https://blogs.nvidia.com/wp-content/uploads/2026/03/JL1_0473-scaled.jpg" alt="" loading="lazy" onerror="this.classList.add('img-err');this.style.background='linear-gradient(135deg,#76b900,#3d6100)'" />
+      <div class="brief-info">
+        <div class="meta-row"><span class="source-badge source-nvidia">NVIDIA</span><span class="date-label">03-10</span></div>
+        <h5 class="card-title"><a href="https://www.cnbc.com/2026/03/10/nvidia-open-source-ai-agent-platform-nemoclaw-wired-agentic-tools-openclaw-clawdbot-moltbot.html" target="_blank">NVIDIA推出NemoClaw企业Agent平台</a></h5>
+      </div>
+    </div>
+    <p class="summary">基于OpenClaw生态的企业级开源Agent平台，蹭上龙虾Agent热潮。</p>
+  </div>
+
+  <div class="brief-card">
+    <div class="brief-top">
+      <img class="brief-thumb" src="https://lh3.googleusercontent.com/bbLVCxqhbnzzj_eIy29oKJigrlL6m4ewSwfCK-sNKVI0l1StFklsEADVPHXtTw9YorgOeIiQmM8vzmM3LBRyKu0pQeMHK4pzA_r4oIVjB_5dj8DU=w1200-h630-n-nu-rw" alt="" loading="lazy" onerror="this.classList.add('img-err');this.style.background='linear-gradient(135deg,#3b82f6,#1e3a8a)'" />
+      <div class="brief-info">
+        <div class="meta-row"><span class="source-badge source-deepmind">DeepMind</span><span class="date-label">03-08</span></div>
+        <h5 class="card-title"><a href="https://deepmind.google/blog/accelerating-mathematical-and-scientific-discovery-with-gemini-deep-think/" target="_blank">Gemini Deep Think解决四个开放数学问题</a></h5>
+      </div>
+    </div>
+    <p class="summary">还发现一篇已通过同行评审的论文存在逻辑缺陷。</p>
+  </div>
+
+  <div class="brief-card">
+    <div class="brief-top">
+      <img class="brief-thumb" src="https://aifundingtracker.com/images/ami-labs.jpg" alt="" loading="lazy" onerror="this.classList.add('img-err');this.style.background='linear-gradient(135deg,#8b5cf6,#4c1d95)'" />
+      <div class="brief-info">
+        <div class="meta-row"><span class="source-badge source-general">AI Weekly</span><span class="date-label">03-10</span></div>
+        <h5 class="card-title"><a href="https://ai-weekly.ai/newsletter-03-10-2026/" target="_blank">Yann LeCun AMI Labs种子轮$10亿+</a></h5>
+      </div>
+    </div>
+    <p class="summary">Meta AI前首席科学家的新公司，可能是欧洲史上最大种子轮。</p>
+  </div>
+
+  <div class="brief-card">
+    <div class="brief-top">
+      <img class="brief-thumb" src="https://i0.wp.com/stratechery.com/wp-content/uploads/2018/03/cropped-android-chrome-512x512-1.png" alt="" loading="lazy" onerror="this.classList.add('img-err');this.style.background='linear-gradient(135deg,#ef4444,#7f1d1d)'" />
+      <div class="brief-info">
+        <div class="meta-row"><span class="source-badge source-stratechery">Stratechery</span><span class="date-label">03-07</span></div>
+        <h5 class="card-title"><a href="https://stratechery.com/" target="_blank">Big Tech AI资本支出合计超$7000亿</a></h5>
+      </div>
+    </div>
+    <p class="summary">Amazon+Google+Meta支出接近美国国防部年度预算的三分之二。</p>
+  </div>
+
+  <div class="brief-card">
+    <div class="brief-top">
+      <img class="brief-thumb" src="https://assets.bwbx.io/images/users/iqjWHBFdfxIU/izx7rgFSlvyQ/v1/660x-1.png" alt="" loading="lazy" onerror="this.classList.add('img-err');this.style.background='linear-gradient(135deg,#8b5cf6,#4c1d95)'" />
+      <div class="brief-info">
+        <div class="meta-row"><span class="source-badge source-bloomberg">Bloomberg</span><span class="date-label">03-10</span></div>
+        <h5 class="card-title"><a href="https://www.techbrew.com/" target="_blank">Oracle裁员2-3万人投$100亿建AI基建</a></h5>
+      </div>
+    </div>
+    <p class="summary">继Block裁40%后又一"裁人投AI"巨头。Dorsey直言岗位"已多余"。</p>
+  </div>
+
+  <div class="brief-card">
+    <div class="brief-top">
+      <img class="brief-thumb" src="https://d12v9rtnomnebu.cloudfront.net/divesite/header_image_logos/healthcare_dive_feed_header.jpg" alt="" loading="lazy" onerror="this.classList.add('img-err');this.style.background='linear-gradient(135deg,#059669,#064e3b)'" />
+      <div class="brief-info">
+        <div class="meta-row"><span class="source-badge source-general">Healthcare</span><span class="date-label">03-10</span></div>
+        <h5 class="card-title"><a href="https://www.healthcare-brew.com/stories/2026/03/10/salesforce-releases-six-new-ai-agents-healthcare" target="_blank">Salesforce发布6款医疗AI智能体</a></h5>
+      </div>
+    </div>
+    <p class="summary">覆盖转诊和传染病模式识别，医疗Agent进入实用化。</p>
+  </div>
+
+  <div class="brief-card">
+    <div class="brief-top">
+      <img class="brief-thumb" src="https://images.tmtpost.com/uploads/images/zhaopian/nuxtpic/change_logo3/og_image.png" alt="" loading="lazy" onerror="this.classList.add('img-err');this.style.background='linear-gradient(135deg,#dc2626,#991b1b)'" />
+      <div class="brief-info">
+        <div class="meta-row"><span class="source-badge source-china">中国AI</span><span class="date-label">03-06</span></div>
+        <h5 class="card-title"><a href="https://www.tmtpost.com/7908965.html" target="_blank">字节/阿里/百度AI硬件大爆发</a></h5>
+      </div>
+    </div>
+    <p class="summary">飞书"录音豆"、夸克AI眼镜、小度AI手机。2026中国智能眼镜迎来转折点。</p>
+  </div>
+
+  <div class="brief-card">
+    <div class="brief-top">
+      <img class="brief-thumb" src="https://cdn.sanity.io/images/4zrzovbb/website/9ad98d612086fe52b3042f9183414669b4d2a3da-2200x1954.png" alt="" loading="lazy" onerror="this.classList.add('img-err');this.style.background='linear-gradient(135deg,#d97706,#78350f)'" />
+      <div class="brief-info">
+        <div class="meta-row"><span class="source-badge source-anthropic">Anthropic</span><span class="date-label">03-11</span></div>
+        <h5 class="card-title"><a href="https://www.techradar.com/news/live/claude-anthropic-down-outage-march-11-2026" target="_blank">Claude AI 3月11日再次大规模宕机</a></h5>
+      </div>
+    </div>
+    <p class="summary">全球聊天中断、认证错误。本月已多次全面故障。</p>
+  </div>
+
+  <div class="brief-card">
+    <div class="brief-top">
+      <img class="brief-thumb" src="https://cdn.deepseek.com/images/deepseek-chat-open-graph-image.jpeg" alt="" loading="lazy" onerror="this.classList.add('img-err');this.style.background='linear-gradient(135deg,#4338ca,#312e81)'" />
+      <div class="brief-info">
+        <div class="meta-row"><span class="source-badge source-general">DeepSeek</span><span class="date-label">03-10</span></div>
+        <h5 class="card-title"><a href="https://www.techbrew.com/" target="_blank">DeepSeek准备V4多模态，华为昇腾优化</a></h5>
+      </div>
+    </div>
+    <p class="summary">R1后首个大版本，专为国产芯片优化。月活已达1.45亿。</p>
+  </div>
+
+  <div class="brief-card">
+    <div class="brief-top">
+      <img class="brief-thumb" src="https://techcrunch.com/wp-content/uploads/2026/03/GettyImages-871198558.jpg?resize=1200,772" alt="" loading="lazy" onerror="this.classList.add('img-err');this.style.background='linear-gradient(135deg,#22c55e,#14532d)'" />
+      <div class="brief-info">
+        <div class="meta-row"><span class="source-badge source-techcrunch">TechCrunch</span><span class="date-label">03-07</span></div>
+        <h5 class="card-title"><a href="https://techcrunch.com/2026/03/07/a-roadmap-for-ai-if-anyone-will-listen/" target="_blank">一份AI路线图（如果有人愿意听的话）</a></h5>
+      </div>
+    </div>
+    <p class="summary">跨党派智库发布Pro-Human AI Declaration。</p>
+  </div>
+
+</div>
+
+<!-- ==================== FOOTER ==================== -->
+<div class="footer">
+  <span class="footer-quote">"Neither Can Live While The Other Subscribes"</span>
+  北境 Industry Weekly &middot; Vol. XI &middot; Est. 2026 &middot; 26 dispatches<br/>
+  Printed by enchanted press at Diagon Alley &middot; Owl delivery guaranteed
+</div>
+
+</div>
+<script>
+document.querySelectorAll('.top-story-card, .column-article, .brief-card').forEach(function(card){
+  var img = card.querySelector('img');
+  var link = card.querySelector('.card-title a');
+  if(img && link && !img.parentElement.classList.contains('thumb-link')){
+    var a = document.createElement('a');
+    a.href = link.href;
+    a.target = '_blank';
+    a.className = 'thumb-link';
+    img.parentNode.insertBefore(a, img);
+    a.appendChild(img);
+  }
+});
+</script>
+</body>
+</html>

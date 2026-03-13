@@ -1,0 +1,237 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>北境 Industry Weekly - Archive</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Cinzel:wght@400;700;900&family=EB+Garamond:ital,wght@0,400;0,700;1,400&display=swap');
+  :root {
+    --bg: #1a1408;
+    --card-bg: #241c0e;
+    --parchment: #2a2112;
+    --parchment-light: #342a18;
+    --gold: #c9a84c;
+    --gold-dim: #8b7332;
+    --gold-bright: #e8c84c;
+    --gold-glow: rgba(201,168,76,.25);
+    --text: #d4c9a8;
+    --text-dim: #9a8e6e;
+    --border: #4a3d28;
+    --border-light: #5a4d35;
+    --link: #c9a84c;
+    --link-hover: #e8d88c;
+  }
+  *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+  html { font-size: 16px; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'EB Garamond', 'Georgia', serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* ── Header ── */
+  .masthead {
+    text-align: center;
+    padding: 3rem 1.5rem 2rem;
+    max-width: 900px;
+    width: 100%;
+  }
+  .masthead-rule {
+    border: none;
+    border-top: 2px solid var(--gold-dim);
+    margin: 0 auto 0.8rem;
+    width: 60%;
+  }
+  .masthead-rule.bottom { margin: 0.8rem auto 0; }
+  .subtitle {
+    font-family: 'Cinzel', serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--gold-dim);
+  }
+  .title {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: 2.8rem;
+    font-weight: 900;
+    color: var(--gold);
+    line-height: 1.15;
+    margin: 0.6rem 0;
+    text-shadow: 0 0 30px var(--gold-glow);
+  }
+  .tagline {
+    font-family: 'EB Garamond', serif;
+    font-style: italic;
+    font-size: 1.05rem;
+    color: var(--text-dim);
+    margin-top: 0.5rem;
+  }
+
+  /* ── Decorative divider ── */
+  .divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin: 0.5rem auto 2rem;
+    max-width: 400px;
+  }
+  .divider::before, .divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--gold-dim), transparent);
+  }
+  .divider-diamond {
+    color: var(--gold-dim);
+    font-size: 0.7rem;
+  }
+
+  /* ── Issue list ── */
+  .archive {
+    max-width: 900px;
+    width: 100%;
+    padding: 0 1.5rem 3rem;
+  }
+  .issue-list {
+    list-style: none;
+  }
+  .issue-item {
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    background: var(--card-bg);
+    margin-bottom: 1rem;
+    transition: border-color 0.3s, box-shadow 0.3s;
+  }
+  .issue-item:hover {
+    border-color: var(--gold-dim);
+    box-shadow: 0 0 20px var(--gold-glow);
+  }
+  .issue-link {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.4rem 1.8rem;
+    text-decoration: none;
+    color: var(--text);
+    gap: 1rem;
+  }
+  .issue-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+  }
+  .issue-number {
+    font-family: 'Cinzel', serif;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--gold);
+  }
+  .issue-date {
+    font-size: 0.9rem;
+    color: var(--text-dim);
+  }
+  .issue-arrow {
+    font-size: 1.4rem;
+    color: var(--gold-dim);
+    transition: transform 0.3s, color 0.3s;
+  }
+  .issue-item:hover .issue-arrow {
+    transform: translateX(4px);
+    color: var(--gold);
+  }
+  .issue-badge {
+    display: inline-block;
+    font-family: 'Cinzel', serif;
+    font-size: 0.65rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 0.15rem 0.6rem;
+    border: 1px solid var(--gold-dim);
+    border-radius: 2px;
+    color: var(--gold-dim);
+    margin-top: 0.2rem;
+    width: fit-content;
+  }
+  .issue-badge.latest {
+    border-color: var(--gold);
+    color: var(--gold);
+    background: rgba(201,168,76,.08);
+  }
+
+  /* ── Footer ── */
+  .footer {
+    text-align: center;
+    padding: 2rem 1.5rem 3rem;
+    color: var(--text-dim);
+    font-size: 0.85rem;
+    font-style: italic;
+    max-width: 900px;
+  }
+  .footer-rule {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 0 auto 1.5rem;
+    width: 40%;
+  }
+
+  /* ── Responsive ── */
+  @media (max-width: 600px) {
+    .title { font-size: 2rem; }
+    .issue-link { padding: 1rem 1.2rem; }
+    .issue-number { font-size: 1.1rem; }
+  }
+
+  /* ── Print ── */
+  @media print {
+    body { background: #fff; color: #000; }
+    .issue-item { border-color: #ccc; background: #fff; }
+    .issue-number, .gold, .issue-arrow { color: #333; }
+  }
+</style>
+</head>
+<body>
+
+<header class="masthead">
+  <hr class="masthead-rule">
+  <p class="subtitle">Ministry of Artificial Intelligence Approved</p>
+  <h1 class="title">Weekly Archive</h1>
+  <p class="tagline">"All the dispatches fit to owl." &mdash; 北境行业周报往期归档</p>
+  <hr class="masthead-rule bottom">
+</header>
+
+<div class="divider"><span class="divider-diamond">&#9830;</span></div>
+
+<main class="archive">
+  <ul class="issue-list">
+
+    <li class="issue-item">
+      <a class="issue-link" href="2026W11.html">
+        <div class="issue-info">
+          <span class="issue-number">Issue No. 11 &mdash; 2026 W11</span>
+          <span class="issue-date">2026.03.07 &ndash; 2026.03.13</span>
+          <span class="issue-badge latest">Latest Issue</span>
+        </div>
+        <span class="issue-arrow">&rsaquo;</span>
+      </a>
+    </li>
+
+    <!-- 添加新一期周报时，在此处上方插入新的 <li class="issue-item"> 块 -->
+    <!-- 并将上一期的 "latest" badge 改为普通 badge 或移除 -->
+
+  </ul>
+</main>
+
+<footer class="footer">
+  <hr class="footer-rule">
+  <p>Printed by the Enchanted Quill Press &bull; Delivered by Owl Post</p>
+  <p style="margin-top:0.4rem;">&copy; 2026 北境 Industry Weekly &bull; <a href="/" style="color:var(--gold-dim);text-decoration:none;">circle.re</a></p>
+</footer>
+
+</body>
+</html>
