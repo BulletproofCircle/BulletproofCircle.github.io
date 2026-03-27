@@ -64,18 +64,14 @@
   }
   /* 背景宝可梦元素 */
   body::before {
-    content: '◓ ◑ ◒ ◐  ✦  ◓ ◑ ◒ ◐  ✦  ◓ ◑ ◒ ◐  ✦  ◓ ◑ ◒ ◐  ✦  ◓ ◑ ◒ ◐  ✦  ◓ ◑ ◒ ◐  ✦  ◓ ◑ ◒ ◐  ✦  ◓ ◑ ◒ ◐';
+    content: '';
     position: fixed;
-    top: 0; left: 0; right: 0;
-    font-size: 18px;
-    color: rgba(220,10,45,.07);
-    letter-spacing: 8px;
-    line-height: 3;
-    word-spacing: 10px;
-    overflow: hidden;
-    height: 100vh;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-image: url("https://miaobi-lite.cdn.bcebos.com/miaobi/5mao/b%275a6d5Y%2Bv5qKm5aOB57q45omL5py65aOB57q4XzE3MzE0NDQyMDYuOTQ4NzYy%27/0.png?authorization=bce-auth-v1%2FALTAKmda7zOvhZVbRzBLewvCMU%2F2024-11-12T20%3A43%3A27Z%2F-1%2F%2F7de356cf320dce7c7ca94ab3d9aa8302356d586053933b7ffe7626f87cde35a3?x-bce-process=image/auto-orient,o_1/watermark,image_NDU0ZjAyZDU5YjQ1LnBuZw==,bucket_searchbox,w_32,text_QOWJjeacneS4h-i0r-a0geeJmeWjqw==,type_RlpMYW5UaW5nSGVp,size_32,x_22,y_22,interval_4,color_FFFFFF,effect_softoutline,shc_000000,blr_2,align_1&for=bg");
+    background-repeat: repeat;
+    background-size: 540px auto;
+    opacity: 0.08;
     pointer-events: none;
-    white-space: pre-wrap;
     z-index: 0;
   }
   body::after {
@@ -83,10 +79,8 @@
     position: fixed;
     top: 0; left: 0; right: 0; bottom: 0;
     background-image:
-      radial-gradient(circle, rgba(220,10,45,.06) 1px, transparent 1px),
-      radial-gradient(circle, rgba(74,222,128,.04) 1px, transparent 1px);
-    background-size: 60px 60px, 90px 90px;
-    background-position: 0 0, 30px 30px;
+      radial-gradient(circle, rgba(220,10,45,.04) 1px, transparent 1px);
+    background-size: 60px 60px;
     pointer-events: none;
     z-index: 0;
   }
