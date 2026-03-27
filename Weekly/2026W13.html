@@ -62,6 +62,35 @@
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
   }
+  /* 背景宝可梦元素 */
+  body::before {
+    content: '◓ ◑ ◒ ◐  ✦  ◓ ◑ ◒ ◐  ✦  ◓ ◑ ◒ ◐  ✦  ◓ ◑ ◒ ◐  ✦  ◓ ◑ ◒ ◐  ✦  ◓ ◑ ◒ ◐  ✦  ◓ ◑ ◒ ◐  ✦  ◓ ◑ ◒ ◐';
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    font-size: 18px;
+    color: rgba(220,10,45,.07);
+    letter-spacing: 8px;
+    line-height: 3;
+    word-spacing: 10px;
+    overflow: hidden;
+    height: 100vh;
+    pointer-events: none;
+    white-space: pre-wrap;
+    z-index: 0;
+  }
+  body::after {
+    content: '';
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-image:
+      radial-gradient(circle, rgba(220,10,45,.06) 1px, transparent 1px),
+      radial-gradient(circle, rgba(74,222,128,.04) 1px, transparent 1px);
+    background-size: 60px 60px, 90px 90px;
+    background-position: 0 0, 30px 30px;
+    pointer-events: none;
+    z-index: 0;
+  }
+  .newspaper { position: relative; z-index: 1; }
   a { color: var(--link); text-decoration: none; transition: color .15s; }
   a:hover { color: var(--link-hover); }
   .newspaper {
@@ -69,8 +98,9 @@
     margin: 0 auto;
     padding: 0 28px;
     background: linear-gradient(180deg, rgba(220,10,45,.06) 0%, transparent 120px, transparent 80%, rgba(220,10,45,.04) 100%);
-    border-left: 1px solid rgba(220,10,45,.15);
-    border-right: 1px solid rgba(220,10,45,.15);
+    border-left: 2px solid rgba(220,10,45,.2);
+    border-right: 2px solid rgba(220,10,45,.2);
+    position: relative; z-index: 1;
   }
 
   /* === POKÉDEX MASTHEAD === */
@@ -155,7 +185,7 @@
   }
   .masthead-title {
     font-family: 'Press Start 2P', monospace;
-    font-size: 18px;
+    font-size: 14px;
     font-weight: 400;
     color: #FFDE00;
     text-shadow: 0 0 12px rgba(255,222,0,.5), 2px 2px 0 rgba(0,0,0,.5);
@@ -494,7 +524,7 @@
   </div>
   <div class="masthead-screen">
     <div class="masthead-pokedex-label">POK&#201;DEX  No.013</div>
-    <div class="masthead-title">&#21271;&#22659; Industry<br>Weekly</div>
+    <div class="masthead-title">&#21271;&#22659; Industry Weekly</div>
     <div class="masthead-entry">&#9658; W13 &middot; 2026.03.21&#8212;03.27</div>
     <div class="masthead-tagline">Delivering Digital Intelligence Since 2026</div>
   </div>
